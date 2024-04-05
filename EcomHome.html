@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- 
+            Make the dropdown link to the catalog pages
+            add the updated bar to the catalog pages
+            make the home button lead back to the home page
+            make help do some kind of customer service page
+            make the images rotate out with different ones
+        -->
+        <style>
+        #bar {
+            background-color: rgb(107, 16, 13);
+            height: 100px;
+            color:rgba(228, 181, 28, 0.87);
+            text-indent: 3%;
+            font-size: 20px;
+            border: solid;
+            border-width: thick;
+        }
+        #links {
+            color:rgba(228, 181, 28, 0.87);
+            user-select: none;
+        }
+        #home {
+            position: absolute;
+            margin-left: 500px;
+            margin-top: -65px;
+            transition: transform 1.3s;
+        }
+        #home:hover {
+            transform: scale(1.2);
+        }
+        #strands:hover {
+            transform: scale(1.2);
+        }
+        #help:hover {
+            transform: scale(1.2);
+        }
+        #strands {
+            position: absolute;
+            margin-left: 720px;
+            margin-top: -65px;
+            transition: transform 1.3s;
+        }
+        #help {
+            position: absolute;
+            margin-left: 1000px;
+            margin-top: -65px;
+            transition: transform 1.3s;
+        }
+        #sideBar {
+            background-color: rgb(107, 16, 13);
+            position: absolute;
+            height: 1000px;
+            width: 500px;
+            color:rgba(228, 181, 28, 0.87);
+            border-left: solid;
+            border-right: solid;
+            border-bottom: solid;
+            border-width: thick;
+        }
+        #strand1 {
+            margin-left: 525px;
+            margin-top: 16px;
+        }
+        #strand2 {
+            margin-left: 950px;
+            margin-top: 16px;
+        }
+        #strand3 {
+            margin-left: 737px;
+            margin-top: 390px;
+        }
+        .pictures {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            user-select: none;
+        }
+        #allStrands {
+            margin-left: 50px;
+        }
+        #strand1, #strand2, #strand3 {
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            border: solid;
+            border-width: thick;
+            border-color: rgb(107, 16, 13);
+            border-radius: 50%;
+        }
+        @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Apply animation to text in #sideBar */
+    .fDesc {
+        animation: fadeIn 2s ease;
+    }
+    .fWeb {
+        animation: fadeIn 4s ease;
+    }
+    .fWood
+     {
+        animation: fadeIn 6s ease;
+    }
+    .fOther {
+        animation: fadeIn 8s ease;
+    }
+
+
+        </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Home</title>
+    </head>
+  
+    <body> 
+        
+        <div id = "bar">
+            <h1><span id="istem" onclick="goToCHS()">ISTEM</span></h1>
+        </div>
+        <div id="sideBar">
+            <h2 class="fDesc" style="font-size: 27px; text-align: center;">Purchase or request any ISTEM strands' work, 
+                and contribute to Countryside High School's funding.</h2>
+            <h2 class="fWeb" style="font-size: 25px; text-align: center; margin-top: 75px;">WEB DEVELOPEMENT</h2>
+            <h2 class="fWeb" style="font-size: 25px; text-align: center;">The ISTEM woodshop makes different types of furniture and other miscellanious items</h2>
+            <h2 class="fWood" style="font-size: 25px; text-align: center; margin-top: 75px;">WOODSHOP</h2>
+            <h2 class="fWood" style="font-size: 25px; text-align: center;">The ISTEM woodshop makes different types of furniture and other miscellanious items</h2>
+            <h2 class="fOther" style="font-size: 25px; text-align: center; margin-top: 75px;">???</h2>
+            <h2 class="fOther" style="font-size: 25px; text-align: center;">The ISTEM ??? makes different types of furniture and other miscellanious items</h2>
+        </div>
+        
+        <div id="allStrands">
+        <div id="strand1"><img class='pictures' src='images/working.jpg'></div>
+        <div id="strand2"><img class='pictures' src="images/woodshop.jpg"></div>
+        <div id="strand3"><img class='pictures' src="images/istemLogo.jpg"></div>
+       </div> 
+       
+       <div id="links">
+            <h2 id="home" onclick="goHome()">Home</h2>
+            <select id ="strands" onchange="goToCatalog(this)">
+                <option>Select</option>
+                <option value="ecomHTML.html">WoodShop</option>
+                <option>Web Development</option>
+                <option>Whatever else</option>
+            </select>
+            <h2 id="help">Help</h2>
+ </div>
+        <script>
+              function goToCHS() {
+            var element = event.target;
+            if (element.id === "istem") {
+                window.open("https://www.pcsb.org/countryside-hs");
+            }
+        }
+
+
+            function goHome() {
+                window.location.href = "EcomHome.html"
+            }
+            function goToCatalog (select) {
+                var selectedOption = select.options[select.selectedIndex].value;
+                if(selectedOption !== "select") {
+                    window.location.href = selectedOption;
+                }
+            }
+        </script>
+    </body>
+</html>

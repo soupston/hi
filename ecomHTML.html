@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+     #bar {
+            background-color: rgb(107, 16, 13);
+            height: 100px;
+            color:rgba(228, 181, 28, 0.87);
+            text-indent: 3%;
+            font-size: 20px;
+            border: solid;
+            border-width: thick;
+        }
+        #links {
+            color:rgba(228, 181, 28, 0.87);
+            user-select: none;
+        }
+        #home {
+            position: absolute;
+            margin-left: 500px;
+            margin-top: -65px;
+            transition: transform 1.3s;
+        }
+        #home:hover {
+            transform: scale(1.2);
+        }
+        #strands:hover {
+            transform: scale(1.2);
+        }
+        #help:hover {
+            transform: scale(1.2);
+        }
+        #strands {
+            position: absolute;
+            margin-left: 720px;
+            margin-top: -65px;
+            transition: transform 1.3s;
+        }
+        #help {
+            position: absolute;
+            margin-left: 1000px;
+            margin-top: -65px;
+            transition: transform 1.3s;
+        }
+    #item {
+        margin-left: 10%;
+        margin-top: 5%;
+        
+}
+    #item img {
+      border: 5px solid rgb(228, 181, 28, 0.87); 
+      border-radius: 25%
+    }
+    #sideBar {
+            background-color: rgb(107, 16, 13);
+            position: absolute;
+            height: 1000px;
+            width: 500px;
+            color:rgba(228, 181, 28, 0.87);
+            border-left: solid;
+            border-right: solid;
+            border-bottom: solid;
+            border-width: thick;
+        }
+    #order {
+        margin-left: 600px;
+        width: 860px;
+        height: 700px;
+        border: solid;
+        text-align: center;
+    }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Ecommerce</title>
+</head>
+<body>    
+  <div id = "bar">
+    <h1><span id="istem" onclick="goToCHS()">ISTEM</span></h1>
+</div>
+<div id="sideBar">
+  <p style="text-align: center; font-size: 25px;">Purchase carpentry items made by the ISTEM engineering students</p>
+  <p style="font-size: 23px;">Here are some examples of their work:</p>
+  <p style="position: absolute; font-size: 25px; margin-left: 750px;"></p>
+  <div id = "item">
+    <img width='350' height='405' id = 'wood'src="images/lawnchair.jpg">
+    <p id="shop"></p>
+</div>
+<div>
+<select style="width: 200px; height: 25px; " id="myDropdown">
+    <option value="item1">Item 1</option>
+    <option value="item2">Item 2</option>
+    <option value="item3">Item 3</option>
+    <option Value="item4">Item 4</option>
+  </select>
+</div>
+  <button id="buy">BUY</button>
+
+  <p style="text-align: center; font-size: 25px;"></p>
+</div>
+
+
+<div id="links">
+  <h2 id="home" onclick="goHome()">Home</h2>
+  <select id ="strands" onchange="goToCatalog(this)">
+      <option>Select</option>
+      <option value="ecomHTML.html">WoodShop</option>
+      <option>Web Development</option>
+      <option>Whatever else</option>
+  </select>
+  <h2 id="help">Help</h2>
+</div>
+
+<div id="order">
+  <h1>Heres your cart:</h1>
+</div>
+    
+    <script>
+document.getElementById("myDropdown").addEventListener("change", function() {
+  var selectedValue = this.value;
+  if(selectedValue == 'item1') {
+    document.getElementById('wood').src = 'images/lawnchair.jpg';
+  } else if (selectedValue == 'item2') {
+    document.getElementById('wood').src = 'images/toolbox.jpg';
+  } else if (selectedValue == 'item3') {
+    document.getElementById('wood').src = 'images/table.jpg';
+  } else if (selectedValue == 'item4') {
+    document.getElementById('wood').src = 'images/shelf.jpg'
+  }
+  //newWords
+})
+  document.getElementById('buy').addEventListener("click", openNewWindow)
+
+ /* function newWords() {
+  if (selectedValue == 'item1') {
+    document.getElementById()
+  }
+  }
+*/
+function goToCHS() {
+            var element = event.target;
+            if (element.id === "istem") {
+                window.open("https://www.pcsb.org/countryside-hs");
+            }
+        }
+
+
+function goHome() {
+                window.location.href = "EcomHome.html"
+            }
+
+  function openNewWindow() {
+  url ='https://www.google.com'; //this url should open a cart
+  var windowFeatures = "width=600,height=400";
+  var newWindow = window.open(url, "_blank", windowFeatures);
+  newWindow.focus();
+}
+    </script>
+</body>
+</html>
