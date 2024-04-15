@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <style>
-     #bar {
+    <head>
+
+        <!-- 
+            Make the dropdown link to the catalog pages
+            add the updated bar to the catalog pages
+            make the home button lead back to the home page
+            make help do some kind of customer service page
+            make the images rotate out with different ones
+        -->
+        <style>
+        #bar {
             background-color: rgb(107, 16, 13);
             height: 100px;
             color:rgba(228, 181, 28, 0.87);
@@ -42,16 +50,7 @@
             margin-top: -65px;
             transition: transform 1.3s;
         }
-    #item {
-        margin-left: 10%;
-        margin-top: 5%;
-        
-}
-    #item img {
-      border: 5px solid rgb(228, 181, 28, 0.87); 
-      border-radius: 25%
-    }
-    #sideBar {
+        #sideBar {
             background-color: rgb(107, 16, 13);
             position: absolute;
             height: 1000px;
@@ -62,95 +61,103 @@
             border-bottom: solid;
             border-width: thick;
         }
-    #order {
-        margin-left: 600px;
-        width: 860px;
-        height: 700px;
-        border: solid;
-        text-align: center;
+        #strand1 {
+            margin-left: 525px;
+            margin-top: 16px;
+        }
+        #strand2 {
+            margin-left: 950px;
+            margin-top: 16px;
+        }
+        #strand3 {
+            margin-left: 737px;
+            margin-top: 390px;
+        }
+        .pictures {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            user-select: none;
+        }
+        #allStrands {
+            margin-left: 50px;
+        }
+        #strand1, #strand2, #strand3 {
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            border: solid;
+            border-width: thick;
+            border-color: rgb(107, 16, 13);
+            border-radius: 50%;
+        }
+        @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
-</style>
+
+    /* Apply animation to text in #sideBar */
+    .fDesc {
+        animation: fadeIn 2s ease;
+    }
+    .fWeb {
+        animation: fadeIn 4s ease;
+    }
+    .fWood
+     {
+        animation: fadeIn 6s ease;
+    }
+    .fOther {
+        animation: fadeIn 8s ease;
+    }
+
+
+        </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Ecommerce</title>
-</head>
-<body>    
-  <div id = "bar">
-    <h1><span id="istem" onclick="goToCHS()">ISTEM</span></h1>
-</div>
-<div id="sideBar">
-  <p style="text-align: center; font-size: 25px;">Purchase carpentry items made by the ISTEM engineering students</p>
-  <p style="font-size: 23px;">Here are some examples of their work:</p>
-  <p style="position: absolute; font-size: 25px; margin-left: 750px;"></p>
-  <div id = "item">
-    <img width='350' height='405' id = 'wood'src="images/lawnchair.jpg">
-    <p id="shop"></p>
-</div>
-<div>
-<select style="width: 200px; height: 25px; " id="myDropdown">
-    <option value="item1">Item 1</option>
-    <option value="item2">Item 2</option>
-    <option value="item3">Item 3</option>
-    <option Value="item4">Item 4</option>
-  </select>
-</div>
-  <button id="buy">BUY</button>
-
-  <p style="text-align: center; font-size: 25px;"></p>
-</div>
-
-
-<div id="links">
-  <h2 id="home" onclick="goHome()">Home</h2>
-  <select id ="strands" onchange="goToCatalog(this)">
-      <option>Select</option>
-      <option value="index2.html">WoodShop</option>
-      <option>Web Development</option>
-      <option>Whatever else</option>
-  </select>
-  <h2 id="help">Help</h2>
-</div>
-
-<div id="order">
-    <h1>Heres your cart:</h1> <!--Lists the items that are selected
-                                 gives the total price and individual price breakdown
-                                 allow people to edit orders-->
-    <form name="contact" netlify>
-      <p>
-        <label>Name <input type="text" name="name" /></label>
-      </p>
-      <p>
-        <label>Email <input type="email" name="email" /></label>
-      </p>
-      <p>
-        <button type="submit">Send</button>
-      </p>
-     </form>
-</div>
-    
-    <script>
-document.getElementById("myDropdown").addEventListener("change", function() {
-  var selectedValue = this.value;
-  if(selectedValue == 'item1') {
-    document.getElementById('wood').src = 'images/lawnchair.jpg';
-  } else if (selectedValue == 'item2') {
-    document.getElementById('wood').src = 'images/toolbox.jpg';
-  } else if (selectedValue == 'item3') {
-    document.getElementById('wood').src = 'images/table.jpg';
-  } else if (selectedValue == 'item4') {
-    document.getElementById('wood').src = 'images/shelf.jpg'
-  }
-  //newWords
-})
-  document.getElementById('buy').addEventListener("click", openNewWindow)
-
- /* function newWords() {
-  if (selectedValue == 'item1') {
-    document.getElementById()
-  }
-  }
-*/
-function goToCHS() {
+    <title>Home</title>
+    </head>
+  
+    <body> 
+        
+        <div id = "bar">
+            <h1><span id="istem" onclick="goToCHS()">ISTEM</span></h1>
+        </div>
+        <div id="sideBar">
+            <h2 class="fDesc" style="font-size: 27px; text-align: center;">Purchase or request any ISTEM strands' work, 
+                and contribute to Countryside High School's funding.</h2>
+            <h2 class="fWeb" style="font-size: 25px; text-align: center; margin-top: 75px;">WEB DEVELOPEMENT</h2>
+            <h2 class="fWeb" style="font-size: 25px; text-align: center;">The ISTEM woodshop makes different types of furniture and other miscellanious items</h2>
+            <h2 class="fWood" style="font-size: 25px; text-align: center; margin-top: 75px;">WOODSHOP</h2>
+            <h2 class="fWood" style="font-size: 25px; text-align: center;">The ISTEM woodshop makes different types of furniture and other miscellanious items</h2>
+            <h2 class="fOther" style="font-size: 25px; text-align: center; margin-top: 75px;">???</h2>
+            <h2 class="fOther" style="font-size: 25px; text-align: center;">The ISTEM ??? makes different types of furniture and other miscellanious items</h2>
+        </div>
+        
+        <div id="allStrands">
+        <div id="strand1"><img class='pictures' src='images/working.jpg'></div>
+        <div id="strand2"><img class='pictures' src="images/woodshop.jpg"></div>
+        <div id="strand3"><img class='pictures' src="images/istemLogo.jpg"></div>
+       </div> 
+       
+       <div id="links">
+            <h2 id="home" onclick="goHome()">Home</h2>
+            <select id ="strands" onchange="goToCatalog(this)">
+                <option>Select</option>
+                <option value="index2.html">WoodShop</option>
+                <option value="index3.html">Web Development</option>
+                <option value="index4.html">Communication Technologies</option>
+            </select>
+            <h2 id="help">Help</h2>
+ </div>
+        <script>
+              function goToCHS() {
             var element = event.target;
             if (element.id === "istem") {
                 window.open("https://www.pcsb.org/countryside-hs");
@@ -158,16 +165,15 @@ function goToCHS() {
         }
 
 
-function goHome() {
+            function goHome() {
                 window.location.href = "index.html"
             }
-
-  function openNewWindow() {
-  url ='https://www.google.com'; //this url should open a cart
-  var windowFeatures = "width=600,height=400";
-  var newWindow = window.open(url, "_blank", windowFeatures);
-  newWindow.focus();
-}
-    </script>
-</body>
+            function goToCatalog (select) {
+                var selectedOption = select.options[select.selectedIndex].value;
+                if(selectedOption !== "select") {
+                    window.location.href = selectedOption;
+                }
+            }
+        </script>
+    </body>
 </html>
